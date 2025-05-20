@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import "../css/upgrades.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faPlus} from "@fortawesome/free-solid-svg-icons";
 
 const Upgrades = () => {
     return (

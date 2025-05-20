@@ -7,22 +7,23 @@ import Upgrades from "./views/Upgrades.jsx";
 function App() {
   return (
     <>
-      <div className="container-fluid">
-        <div className="row">
+      <div className="container-fluid vh-100 d-flex flex-column">
+        <div className="row flex-shrink-0">
           <Nav />
         </div>
-        <div className="row">
-          <div className="col-md-3 mt-5">
+        <div className="row flex-grow-1 overflow-hidden">
+          <div className="col-md-3 bg-warning">
             <Clicker />
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 bg-success">
             <Field />
           </div>
-          <div className="col-md-3">
+          <div className="col-md-3 bg-warning">
             <Upgrades />
           </div>
         </div>
       </div>
+
 
     </>
   );

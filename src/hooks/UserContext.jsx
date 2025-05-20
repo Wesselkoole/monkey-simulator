@@ -12,8 +12,8 @@ export function UserContextProvider(props) {
     const [gameData, setGameData] = useState({
         bananas: 0,
         monkeys: 1,
-        tress: 1,
-        maxTreeClimbHeight: 10,
+        trees: 4,
+        maxTreeClimbHeight: 20,
         currentMonkeyClimbHeight: 0,
         bananaTreeYield: 10
     });

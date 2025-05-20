@@ -1,0 +1,44 @@
+.tree{
+    position: static;
+    z-index: 0;
+}
+
+.bark {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.leaves{
+    position: relative;
+    width: 200%;
+    margin-left: -50%;
+    margin-bottom:-50%;
+    z-index: 2;
+}
+
+.root{
+    position: relative;
+    width: 100%;
+}
+
+.bananas{
+    position: relative;
+    width: 50%;
+    margin-bottom: -240%;
+    z-index: 2;
+}
+
+.inverted-image{
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+
+#forest {
+  overflow: hidden;         /* hides overflow */
+  position: relative;       /* allows anchoring if needed */
+  bottom: 0px;
+}
+
+

@@ -1,4 +1,5 @@
 import './App.css';
+import './css/tree.css'
 import Nav from "./views/Nav.jsx";
 import Clicker from "./views/Clicker.jsx";
 import Field from "./views/Field.jsx";

@@ -1,5 +1,5 @@
-import { useUserContext } from './hooks/UserContext'
-import { monkeyClicked } from './actions/MonkeyActions';
+import { useUserContext } from '../hooks/UserContext'
+import { monkeyClicked } from '../actions/MonkeyActions';
 
 export function TestClicker() {
   const userContext = useUserContext();

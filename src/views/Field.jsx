@@ -10,7 +10,7 @@ export function Field() {
     return (
         <>
             <div id="forestContainer" className="h-100">
-                <div id="forest" className="row h-100">
+                <div id="forest" className="row">
                     {Array.from({ length: userContext.gameData.trees }).map((_, i) =>
                         <div className="col-md-3 tree">
                             <div className="bananasContainer">

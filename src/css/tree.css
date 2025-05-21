@@ -1,4 +1,4 @@
-.tree{
+.tree {
     position: static;
     z-index: 0;
 }
@@ -9,36 +9,41 @@
     z-index: 1;
 }
 
-.leaves{
+.leaves {
     position: relative;
     width: 200%;
     margin-left: -50%;
-    margin-bottom:-50%;
+    margin-bottom: -50%;
     z-index: 2;
 }
 
-.root{
+.root {
     position: relative;
     width: 100%;
 }
 
-.bananas{
+.bananas {
     position: relative;
     width: 50%;
     margin-bottom: -240%;
     z-index: 2;
 }
 
-.inverted-image{
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
+.inverted-image {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
 }
 
 
 #forest {
-  overflow: hidden;         /* hides overflow */
-  position: relative;       /* allows anchoring if needed */
-  bottom: 0px;
+    overflow: hidden;
+    /* hides overflow */
+    position: absolute;
+    /* allows anchoring if needed */
+    bottom: 0px;
 }
 
 
+#forestContainer {
+    position: relative;
+}

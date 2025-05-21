@@ -6,9 +6,12 @@ import { useUserContext } from '../hooks/UserContext';
 import { useEffect, useRef, useState } from 'react';
 import { monkeyClicked } from '../actions/MonkeyActions';
 import climbingMonkey from "../images/climbing-monkey.png"
+import { usePowerUpContext } from '../hooks/PowerUpContext';
 
 export function Field() {
     const userContext = useUserContext();
+    const powerUpContext = usePowerUpContext();
+    
     const gameData = userContext.gameData;
 
     const forestRef = useRef();
@@ -26,7 +29,7 @@ export function Field() {
     };
 
     useEffect(updateHeight, [gameData.currentMonkeyClimbHeight]);
-    useEffect(() => monkeyClicked(userContext), []);
+    useEffect(() => monkeyClicked(userContext, powerUpContext), []);
 
     return (
         <>

@@ -7,6 +7,7 @@ import { monkeyClicked } from '../actions/MonkeyActions';
 import { usePowerUpContext } from '../hooks/PowerUpContext.jsx';
 import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faSyringe} from "@fortawesome/free-solid-svg-icons";
+import monkey from "../images/monkey.png"
 
 const Clicker = () => {
     const userContext = useUserContext();
@@ -136,7 +137,7 @@ const Clicker = () => {
             {/* Aap afbeelding */}
             <img
                 className={`img-fluid ${isClicked ? 'monkey-clicked' : ''}`}
-                src="src/images/monkey.png"
+                src={monkey}
                 alt="Monkey"
                 draggable="false"
                 style={{ cursor: 'pointer', zIndex: 2, userSelect: "none"}}

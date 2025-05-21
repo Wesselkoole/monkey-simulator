@@ -7,7 +7,7 @@ import {usePowerUpContext} from "../hooks/PowerUpContext.jsx";
 const Nav = () => {
     const userContext = useUserContext();
     const powerUpContext = usePowerUpContext();
-    const rawValue = (userContext.gameData.bananaTreeYield * (powerUpContext.powerUps.HARVEST.level * 1.5)) / userContext.gameData.maxTreeClimbHeight;
+    const rawValue = (userContext.gameData.bananaTreeYield * (powerUpContext.powerUps.HARVEST.level * 1.5)) / (powerUpContext.powerUps.TREE_HEIGHT.level * 10);
 
     const bananasPerClick = rawValue > 0 ? rawValue : 1;    return (
         <nav className="navbar bg-warning shadow-sm py-2">
@@ -21,7 +21,7 @@ const Nav = () => {
                         style={{ height: '40px', width: 'auto' }}
                     />
                 </a>
-                <p>boom hoogte({userContext.gameData.maxTreeClimbHeight} : {userContext.gameData.currentMonkeyClimbHeight}) Banana's per click({bananasPerClick})</p>
+                <p>boom hoogte({powerUpContext.powerUps.TREE_HEIGHT.level * 10} : {userContext.gameData.currentMonkeyClimbHeight}) Banana's per click({bananasPerClick})</p>
 
             </div>
 

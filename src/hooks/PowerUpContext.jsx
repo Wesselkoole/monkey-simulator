@@ -13,6 +13,7 @@ export function PowerUpProvider({ children }) {
         AUTO_CLICKER: { level: 0, cost: 25 },
         STEROIDS: { level: 0, cost: 50 },
         GOLDEN_BANANA: { level: 0, cost: 100 },
+        TREE_HEIGHT: { level: 1, cost: 100 },
         TREE: { level: 1, cost: 150, maxLevel: 4 },
         MONKEY: { level: 1, cost: 150, maxLevel: (currentPowerUps) => { return currentPowerUps.TREE.level * 2; } }
     });

@@ -44,7 +44,7 @@ export function Field() {
 
                             <div className="tree-body">
                                 <img className="leaves" alt="leaves" src="src/images/bladeren.png" />
-                                    {Array.from({ length: gameData.maxTreeClimbHeight / 10 }).map((_, i) => <img
+                                    {Array.from({ length: powerUpContext.powerUps.TREE_HEIGHT.level }).map((_, i) => <img
                                         key={`bark-${i}`}
                                         ref={barkRef}
                                         className="bark"

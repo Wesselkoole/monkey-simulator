@@ -8,7 +8,7 @@ export function monkeyClicked(userContext, powerUpContext) {
         currentMonkeyClimbHeight: gameData.currentMonkeyClimbHeight + 1
     });
 
-    if (gameData.currentMonkeyClimbHeight + 1 < gameData.maxTreeClimbHeight) {
+    if (gameData.currentMonkeyClimbHeight + 1 < (powerUpContext.powerUps.TREE_HEIGHT.level * 10)) {
         return { earned: false };
     }
 

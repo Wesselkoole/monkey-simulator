@@ -109,7 +109,8 @@ const Clicker = () => {
                         top: '30%',
                         fontSize: '2rem',
                         animation: 'riseAndFade 0.8s ease-out',
-                        zIndex: 3
+                        zIndex: 3,
+                        userSelect: "none"
                     }}
                 >
                     +{Math.round(clickAmount)}
@@ -124,7 +125,8 @@ const Clicker = () => {
                         top: '35%',
                         fontSize: '2rem',
                         animation: 'flash 1s ease-out',
-                        zIndex: 4
+                        zIndex: 4,
+                        userSelect: "none"
                     }}
                 >
                     🍌 GOLDEN BANANA! 🍌
@@ -137,7 +139,7 @@ const Clicker = () => {
                 src="src/images/monkey.png"
                 alt="Monkey"
                 draggable="false"
-                style={{ cursor: 'pointer', zIndex: 2 }}
+                style={{ cursor: 'pointer', zIndex: 2, userSelect: "none"}}
                 onClick={handleClick}
             />
         </div>

@@ -5,6 +5,10 @@ const userContext = createContext(null);
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function useUserContext() {
+    if (userContext == null) {
+        throw new Error("UserContext was not provided");
+    }
+
     return useContext(userContext);
 }
 

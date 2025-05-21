@@ -13,7 +13,7 @@ export function UserContextProvider(props) {
         bananas: 0,
         monkeys: 1,
         trees: 4,
-        maxTreeClimbHeight: 20,
+        maxTreeClimbHeight: 5,
         currentMonkeyClimbHeight: 0,
         bananaTreeYield: 10
     });

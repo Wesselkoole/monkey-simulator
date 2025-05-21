@@ -5,7 +5,7 @@ import { useUserContext } from '../hooks/UserContext';
 import { useEffect, useRef } from 'react';
 import climbingMonkey from "../assets/climbing-monkey.png"
 import { usePowerUpContext } from '../hooks/PowerUpContext';
-import bananen from "./assets/bananen.png";
+import bananen from "../assets/bananen.png";
 import bladeren from "../assets/bladeren.png";
 import midden from "../assets/midden.png";
 import bodem from "../assets/bodem.png";

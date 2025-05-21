@@ -7,7 +7,7 @@ import { monkeyClicked } from '../actions/MonkeyActions';
 import { usePowerUpContext } from '../hooks/PowerUpContext.jsx';
 import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faSyringe} from "@fortawesome/free-solid-svg-icons";
-import monkey from "../assets/bananen.png"
+import monkey from "../assets/monkey.png"
 
 const Clicker = () => {
     const userContext = useUserContext();

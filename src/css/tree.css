@@ -37,10 +37,8 @@
 
 #forest {
     overflow: hidden;
-    /* hides overflow */
     position: absolute;
-    /* allows anchoring if needed */
-    bottom: 0px;
+    bottom: 40%;
 }
 
 

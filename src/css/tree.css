@@ -34,6 +34,31 @@
     transform: scaleX(-1);
 }
 
+.monkey-container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+}
+
+.monkey-container > * {
+    width: 25%;
+}
+
+.monkey-tree img:first-child {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.monkey-tree {
+    display: flex;
+}
+
+.monkey-tree img {
+    width: 50%;
+}
 
 #forest {
     overflow: hidden;

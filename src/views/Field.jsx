@@ -3,8 +3,9 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloud } from "@fortawesome/free-solid-svg-icons";
 import { useUserContext } from '../hooks/UserContext';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { monkeyClicked } from '../actions/MonkeyActions';
+import climbingMonkey from "../images/climbing-monkey.png"
 
 export function Field() {
     const userContext = useUserContext();
@@ -25,12 +26,13 @@ export function Field() {
     };
 
     useEffect(updateHeight, [gameData.currentMonkeyClimbHeight]);
+    useEffect(() => monkeyClicked(userContext), []);
 
     return (
         <>
             <div id="forestContainer" className="h-100">
                 <div id="forest" className="row" ref={forestRef}>
-                    {Array.from({ length: userContext.gameData.trees }).map((_, i) =>
+                    {gameData.trees.map(tree =>
                         <div className="col-md-3 tree">
                             <div className="bananasContainer">
                                 <img className="bananas" alt="bananas" src="src/images/bananen.png" />
@@ -39,7 +41,7 @@ export function Field() {
 
                             <div className="tree-body">
                                 <img className="leaves" alt="leaves" src="src/images/bladeren.png" />
-                                    {Array.from({ length: userContext.gameData.maxTreeClimbHeight / 10 }).map((_, i) => <img
+                                    {Array.from({ length: gameData.maxTreeClimbHeight / 10 }).map((_, i) => <img
                                         key={`bark-${i}`}
                                         ref={barkRef}
                                         className="bark"
@@ -50,6 +52,16 @@ export function Field() {
                             </div>
                         </div>
                     )}
+                </div>
+            
+                <div className="monkey-container">
+                    {gameData.trees.map(tree => (
+                        <div className="monkey-tree">
+                            {Array.from({ length: tree.monkeys}).map((_, i) => (
+                                <img src={climbingMonkey} />
+                            ))}
+                        </div>
+                    ))}
                 </div>
             </div>
         </>

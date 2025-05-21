@@ -12,25 +12,29 @@ const Clicker = () => {
     const userContext = useUserContext();
     const powerUpContext = usePowerUpContext();
     const autoClickerLevel = powerUpContext.powerUps.AUTO_CLICKER.level;
-    // const [clickAmount, setClickAmount] = useState(null);
-    // const [showValue, setShowValue] = useState(false);
+    const [clickAmount, setClickAmount] = useState(null);
+    const [showValue, setShowValue] = useState(false);
+    const [showGolden, setShowGolden] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
 
     const handleClick = () => {
-        // const value = ((userContext.gameData.bananaTreeYield * powerUpContext.powerUps.HARVEST.level) * userContext.gameData.monkeys);
-        // setClickAmount(value);
-        // setShowValue(true);
-        monkeyClicked(userContext, powerUpContext);
+        const result = monkeyClicked(userContext, powerUpContext);
         setIsClicked(true);
+        setTimeout(() => setIsClicked(false), 100);
 
-        // klik animatie
-        setIsClicked(true);
-        setTimeout(() => setIsClicked(false), 100); // Reset na 100ms
+        if (result?.earned) {
+            setClickAmount(result.bananasGained);
+            setShowValue(true);
 
-        // +x amimatie
-        // setTimeout(() => {
-        //     setShowValue(false);
-        // }, 800);
+            if (result.goldenBananaUsed) {
+                setShowGolden(true);
+                setTimeout(() => setShowGolden(false), 1000);
+            }
+
+            setTimeout(() => {
+                setShowValue(false);
+            }, 800);
+        }
     };
 
     const renderAutoClickerIcons = () => {
@@ -84,25 +88,42 @@ const Clicker = () => {
             {/* Auto Clicker Rings */}
             {renderAutoClickerIcons()}
 
-            {/*{showValue && (*/}
-            {/*    <div*/}
-            {/*        className="position-absolute text-success fw-bold"*/}
-            {/*        style={{*/}
-            {/*            top: '30%',*/}
-            {/*            fontSize: '2rem',*/}
-            {/*            animation: 'riseAndFade 0.8s ease-out',*/}
-            {/*            zIndex: 3*/}
-            {/*        }}*/}
-            {/*    >*/}
-            {/*        +{clickAmount}*/}
-            {/*    </div>*/}
-            {/*)}*/}
+            {/* Bananen verdiend tekst */}
+            {showValue && (
+                <div
+                    className="position-absolute text-success fw-bold"
+                    style={{
+                        top: '30%',
+                        fontSize: '2rem',
+                        animation: 'riseAndFade 0.8s ease-out',
+                        zIndex: 3
+                    }}
+                >
+                    +{Math.round(clickAmount)}
+                </div>
+            )}
+
+            {/* Golden Banana effect */}
+            {showGolden && (
+                <div
+                    className="position-absolute text-warning fw-bold"
+                    style={{
+                        top: '20%',
+                        fontSize: '2rem',
+                        animation: 'flash 1s ease-out',
+                        zIndex: 4
+                    }}
+                >
+                    🍌 GOLDEN BANANA! 🍌
+                </div>
+            )}
 
             {/* Aap afbeelding */}
             <img
                 className={`img-fluid ${isClicked ? 'monkey-clicked' : ''}`}
                 src="src/images/monkey.png"
                 alt="Monkey"
+                draggable="false"
                 style={{ cursor: 'pointer', zIndex: 2 }}
                 onClick={handleClick}
             />

@@ -3,8 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { useUserContext } from '../hooks/UserContext';
 import {usePowerUpContext} from "../hooks/PowerUpContext.jsx";
-import logo from "../images/logo.png";
-import bananen from "../images/bananen.png";
+import logo from "../assets/logo.png";
+import bananen from "../assets/bananen.png";
 
 const Nav = () => {
     const userContext = useUserContext();

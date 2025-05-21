@@ -5,6 +5,10 @@ import { useUserContext } from '../hooks/UserContext';
 import { useEffect, useRef } from 'react';
 import climbingMonkey from "../images/climbing-monkey.png"
 import { usePowerUpContext } from '../hooks/PowerUpContext';
+import bananen from "../images/bananen.png";
+import bladeren from "../images/bladeren.png";
+import midden from "../images/midden.png";
+import bodem from "../images/bodem.png";
 
 export function Field() {
     const userContext = useUserContext();
@@ -38,20 +42,20 @@ export function Field() {
                     {Array.from({ length: powerUpContext.powerUps.TREE.level }).map(() => (
                         <div className="col-md-3 tree">
                             <div className="bananasContainer">
-                                <img className="bananas" alt="bananas" src="src/images/bananen.png" />
-                                <img className="bananas inverted-image" alt="bananas" src="src/images/bananen.png" />
+                                <img className="bananas" alt="bananas" src={bananen} />
+                                <img className="bananas inverted-image" alt="bananas" src={bananen} />
                             </div>
 
                             <div className="tree-body">
-                                <img className="leaves" alt="leaves" src="src/images/bladeren.png" />
+                                <img className="leaves" alt="leaves" src={bladeren} />
                                     {Array.from({ length: powerUpContext.powerUps.TREE_HEIGHT.level }).map((_, i) => <img
                                         key={`bark-${i}`}
                                         ref={barkRef}
                                         className="bark"
                                         alt="bark"
-                                        src="src/images/midden.png"
+                                        src={midden}
                                     />)}
-                                <img className="root anchored-root" alt="root" ref={rootRef} src="src/images/bodem.png" />
+                                <img className="root anchored-root" alt="root" ref={rootRef} src={bodem} />
                             </div>
                         </div>
                     ))}

@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { useUserContext } from '../hooks/UserContext';
 import {usePowerUpContext} from "../hooks/PowerUpContext.jsx";
+import logo from "../images/logo.png";
+import bananen from "../images/bananen.png";
 
 const Nav = () => {
     const userContext = useUserContext();
@@ -15,7 +17,7 @@ const Nav = () => {
                 {/* Logo */}
                 <a className="navbar-brand d-flex align-items-center" href="#">
                     <img
-                        src="src/images/logo.png"
+                        src={logo}
                         alt="Logo"
                         className="img-fluid"
                         style={{ height: '40px', width: 'auto' }}
@@ -31,7 +33,7 @@ const Nav = () => {
                 style={{ pointerEvents: 'none' }}
             >
                 <img
-                    src="src/images/bananen.png"
+                    src={bananen}
                     alt="Bananen"
                     style={{ height: '30px', width: 'auto' }}
                 />

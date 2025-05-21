@@ -2,11 +2,14 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { useUserContext } from '../hooks/UserContext';
+import {usePowerUpContext} from "../hooks/PowerUpContext.jsx";
 
 const Nav = () => {
     const userContext = useUserContext();
+    const powerUpContext = usePowerUpContext();
+    const rawValue = (userContext.gameData.bananaTreeYield * (powerUpContext.powerUps.HARVEST.level * 1.5)) / userContext.gameData.maxTreeClimbHeight;
 
-    return (
+    const bananasPerClick = rawValue > 0 ? rawValue : 1;    return (
         <nav className="navbar bg-warning shadow-sm py-2">
             <div className="container-fluid d-flex justify-content-between align-items-center">
                 {/* Logo */}
@@ -18,6 +21,8 @@ const Nav = () => {
                         style={{ height: '40px', width: 'auto' }}
                     />
                 </a>
+                <p>boom hoogte({userContext.gameData.maxTreeClimbHeight} : {userContext.gameData.currentMonkeyClimbHeight}) Banana's per click({bananasPerClick})</p>
+
             </div>
 
             {/* Banana Counter */}

@@ -21,6 +21,10 @@ export function UserContextProvider(props) {
             }
         ],
         maxTreeClimbHeight: 30,
+        bananas: 99999,
+        monkeys: 1,
+        tress: 1,
+        maxTreeClimbHeight: 10,
         currentMonkeyClimbHeight: 0,
         bananaTreeYield: 10
     });

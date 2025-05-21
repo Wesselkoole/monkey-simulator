@@ -3,14 +3,33 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloud } from "@fortawesome/free-solid-svg-icons";
 import { useUserContext } from '../hooks/UserContext';
+import { useEffect, useRef } from 'react';
+import { monkeyClicked } from '../actions/MonkeyActions';
 
 export function Field() {
     const userContext = useUserContext();
+    const gameData = userContext.gameData;
+
+    const forestRef = useRef();
+    const barkRef = useRef();
+    const rootRef = useRef();
+
+    const updateHeight = () => {
+        const forest = forestRef.current;
+        const bark = barkRef.current;
+        const root = rootRef.current;
+
+        let offset = (gameData.currentMonkeyClimbHeight * bark.offsetHeight / 10);
+
+        forest.style.transform = `translateY(${root.offsetHeight + offset}px)`;
+    };
+
+    useEffect(updateHeight, [gameData.currentMonkeyClimbHeight]);
 
     return (
         <>
             <div id="forestContainer" className="h-100">
-                <div id="forest" className="row">
+                <div id="forest" className="row" ref={forestRef}>
                     {Array.from({ length: userContext.gameData.trees }).map((_, i) =>
                         <div className="col-md-3 tree">
                             <div className="bananasContainer">
@@ -20,13 +39,14 @@ export function Field() {
 
                             <div className="tree-body">
                                 <img className="leaves" alt="leaves" src="src/images/bladeren.png" />
-                                    {Array.from({ length: userContext.gameData.maxTreeClimbHeight }).map((_, i) => <img
+                                    {Array.from({ length: userContext.gameData.maxTreeClimbHeight / 10 }).map((_, i) => <img
                                         key={`bark-${i}`}
+                                        ref={barkRef}
                                         className="bark"
                                         alt="bark"
                                         src="src/images/midden.png"
                                     />)}
-                                <img className="root anchored-root" alt="root" src="src/images/bodem.png" />
+                                <img className="root anchored-root" alt="root" ref={rootRef} src="src/images/bodem.png" />
                             </div>
                         </div>
                     )}

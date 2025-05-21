@@ -1,18 +1,9 @@
 .upgrade-btn {
-    position: relative;
     display: block;
     width: 100%;
 }
 
-.upgrade-info {
-    display: none;
-    border-top: 1px solid #ccc;
-    padding: 5px 10px;
-    font-size: 0.9rem;
-    color: #000;
-    transition: opacity 0.3s ease;
-}
-
-.upgrade-btn:hover + .upgrade-info {
-    display: block;
+.info-icon {
+    font-size: 1.25rem;
+    transition: color 0.3s;
 }

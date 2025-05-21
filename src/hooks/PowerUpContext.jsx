@@ -9,7 +9,7 @@ export function usePowerUpContext() {
 
 export function PowerUpProvider({ children }) {
     const [powerUps, setPowerUps] = useState({
-        HARVEST: { level: 1, cost: 10 },
+        HARVEST: { level: 0, cost: 10 },
         AUTO_CLICKER: { level: 0, cost: 25 },
         STEROIDS: { level: 0, cost: 50 },
         GOLDEN_BANANA: { level: 0, cost: 100 }

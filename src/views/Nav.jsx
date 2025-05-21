@@ -7,7 +7,7 @@ import {usePowerUpContext} from "../hooks/PowerUpContext.jsx";
 const Nav = () => {
     const userContext = useUserContext();
     const powerUpContext = usePowerUpContext();
-    const bananasperClick = (userContext.gameData.bananaTreeYield * powerUpContext.powerUps.HARVEST.level) / userContext.gameData.maxTreeClimbHeight;
+    const bananasperClick = (userContext.gameData.bananaTreeYield * (powerUpContext.powerUps.HARVEST.level *1.5)) / userContext.gameData.maxTreeClimbHeight;
     return (
         <nav className="navbar bg-warning shadow-sm py-2">
             <div className="container-fluid d-flex justify-content-between align-items-center">

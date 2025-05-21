@@ -14,6 +14,11 @@ export function monkeyClicked(userContext, powerUpContext) {
 
     setGameData({
         currentMonkeyClimbHeight: 0,
-        bananas: gameData.bananas + ((gameData.bananaTreeYield * powerUpContext.powerUps.HARVEST.level) * gameData.monkeys)
+        bananas: gameData.bananas + (
+            (gameData.bananaTreeYield * (powerUpContext.powerUps.HARVEST.level === 0
+                    ? 1
+                    : powerUpContext.powerUps.HARVEST.level * 1.5)
+            ) * gameData.monkeys
+        )
     });
 }

@@ -72,15 +72,28 @@ const Clicker = () => {
         if (autoClickerLevel > 0) {
             const delay = 1000 / autoClickerLevel;
 
-            let index = 0;
             const interval = setInterval(() => {
-                monkeyClicked(userContext, powerUpContext);
-                index = (index + 1) % autoClickerLevel;
+                const result = monkeyClicked(userContext, powerUpContext);
+
+                if (result?.earned) {
+                    setClickAmount(result.bananasGained);
+                    setShowValue(true);
+
+                    if (result.goldenBananaUsed) {
+                        setShowGolden(true);
+                        setTimeout(() => setShowGolden(false), 1000);
+                    }
+
+                    setTimeout(() => {
+                        setShowValue(false);
+                    }, 800);
+                }
             }, delay);
 
             return () => clearInterval(interval);
         }
     }, [autoClickerLevel, userContext, powerUpContext]);
+
 
 
     return (
@@ -108,7 +121,7 @@ const Clicker = () => {
                 <div
                     className="position-absolute text-warning fw-bold"
                     style={{
-                        top: '20%',
+                        top: '35%',
                         fontSize: '2rem',
                         animation: 'flash 1s ease-out',
                         zIndex: 4

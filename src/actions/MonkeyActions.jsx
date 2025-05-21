@@ -17,7 +17,7 @@ export function monkeyClicked(userContext, powerUpContext) {
     let goldenBananaUsed = false;
 
     if (goldenBananaLevel > 0) {
-        const chance = goldenBananaLevel * 5;
+        const chance =  5;
         const roll = Math.random() * 100;
         if (roll < chance) {
             multiplier = goldenBananaLevel + 10;

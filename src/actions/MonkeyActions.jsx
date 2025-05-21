@@ -3,8 +3,9 @@ import {PowerUpProvider} from "../hooks/PowerUpContext.jsx";
 export function monkeyClicked(userContext, powerUpContext) {
     const gameData = userContext.gameData;
     const setGameData = userContext.setGameData;
+
      setGameData({
-        currentMonkeyClimbHeight: gameData.currentMonkeyClimbHeight + powerUpContext.powerUps.HARVEST.level
+        currentMonkeyClimbHeight: gameData.currentMonkeyClimbHeight + 1
     });
 
     if (gameData.currentMonkeyClimbHeight < gameData.maxTreeClimbHeight) {
@@ -13,6 +14,6 @@ export function monkeyClicked(userContext, powerUpContext) {
 
     setGameData({
         currentMonkeyClimbHeight: 0,
-        bananas: gameData.bananas + (gameData.bananaTreeYield * gameData.monkeys)
+        bananas: gameData.bananas + ((gameData.bananaTreeYield * powerUpContext.powerUps.HARVEST.level) * gameData.monkeys)
     });
 }

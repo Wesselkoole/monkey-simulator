@@ -1,6 +1,7 @@
 import React, {useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import '../css/clicker.css';
 import { useUserContext } from '../hooks/UserContext'
 import { monkeyClicked } from '../actions/MonkeyActions';
 import { usePowerUpContext } from '../hooks/PowerUpContext.jsx';
@@ -11,17 +12,25 @@ const Clicker = () => {
     const userContext = useUserContext();
     const powerUpContext = usePowerUpContext();
     const autoClickerLevel = powerUpContext.powerUps.AUTO_CLICKER.level;
+    // const [clickAmount, setClickAmount] = useState(null);
+    // const [showValue, setShowValue] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
 
     const handleClick = () => {
-        const value = powerUpContext.powerUps.HARVEST.level;
-        setClickValue(value);
-        setShowValue(true);
+        // const value = ((userContext.gameData.bananaTreeYield * powerUpContext.powerUps.HARVEST.level) * userContext.gameData.monkeys);
+        // setClickAmount(value);
+        // setShowValue(true);
         monkeyClicked(userContext, powerUpContext);
+        setIsClicked(true);
 
-        // Verberg de waarde na een korte tijd (bijv. 800ms)
-        setTimeout(() => {
-            setShowValue(false);
-        }, 800);
+        // klik animatie
+        setIsClicked(true);
+        setTimeout(() => setIsClicked(false), 100); // Reset na 100ms
+
+        // +x amimatie
+        // setTimeout(() => {
+        //     setShowValue(false);
+        // }, 800);
     };
 
     const renderAutoClickerIcons = () => {
@@ -53,8 +62,7 @@ const Clicker = () => {
         return icons;
     };
 
-    const [clickValue, setClickValue] = useState(null);
-    const [showValue, setShowValue] = useState(false);
+
 
     useEffect(() => {
         if (autoClickerLevel > 0) {
@@ -76,23 +84,23 @@ const Clicker = () => {
             {/* Auto Clicker Rings */}
             {renderAutoClickerIcons()}
 
-            {showValue && (
-                <div
-                    className="position-absolute text-success fw-bold"
-                    style={{
-                        top: '30%',
-                        fontSize: '2rem',
-                        animation: 'riseAndFade 0.8s ease-out',
-                        zIndex: 3
-                    }}
-                >
-                    +{clickValue}
-                </div>
-            )}
+            {/*{showValue && (*/}
+            {/*    <div*/}
+            {/*        className="position-absolute text-success fw-bold"*/}
+            {/*        style={{*/}
+            {/*            top: '30%',*/}
+            {/*            fontSize: '2rem',*/}
+            {/*            animation: 'riseAndFade 0.8s ease-out',*/}
+            {/*            zIndex: 3*/}
+            {/*        }}*/}
+            {/*    >*/}
+            {/*        +{clickAmount}*/}
+            {/*    </div>*/}
+            {/*)}*/}
 
             {/* Aap afbeelding */}
             <img
-                className="img-fluid"
+                className={`img-fluid ${isClicked ? 'monkey-clicked' : ''}`}
                 src="src/images/monkey.png"
                 alt="Monkey"
                 style={{ cursor: 'pointer', zIndex: 2 }}

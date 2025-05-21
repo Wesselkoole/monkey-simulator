@@ -28,9 +28,9 @@ export function monkeyClicked(userContext, powerUpContext) {
     const harvestLevel = powerUpContext.powerUps.HARVEST.level;
     const harvestMultiplier = harvestLevel === 0 ? 1 : harvestLevel * 1.5;
 
-    const bananasGained = gameData.bananaTreeYield * harvestMultiplier * gameData.monkeys * multiplier;
+    let monkeys = powerUpContext.powerUps.MONKEY.level;
 
-    let monkeys = 0;
+    const bananasGained = gameData.bananaTreeYield * harvestMultiplier * monkeys * multiplier;
 
     setGameData({
         currentMonkeyClimbHeight: 0,

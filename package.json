@@ -2,6 +2,7 @@
   "name": "monkey-clicker",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://mrspace6488.github.io/monkey-clicker/",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -1,0 +1,72 @@
+.tree {
+    position: static;
+    z-index: 0;
+}
+
+.bark {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.leaves {
+    position: relative;
+    width: 200%;
+    margin-left: -50%;
+    margin-bottom: -50%;
+    z-index: 2;
+}
+
+.root {
+    position: relative;
+    width: 100%;
+}
+
+.bananas {
+    position: relative;
+    width: 50%;
+    margin-bottom: -240%;
+    z-index: 2;
+}
+
+.inverted-image {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.monkey-container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+}
+
+.monkey-container > * {
+    width: 25%;
+}
+
+.monkey-tree img:first-child {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.monkey-tree {
+    display: flex;
+}
+
+.monkey-tree img {
+    width: 50%;
+}
+
+#forest {
+    overflow: hidden;
+    position: absolute;
+    bottom: 50%;
+}
+
+
+#forestContainer {
+    position: relative;
+}

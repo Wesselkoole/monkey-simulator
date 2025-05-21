@@ -5,15 +5,22 @@ const userContext = createContext(null);
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function useUserContext() {
+    if (userContext == null) {
+        throw new Error("UserContext was not provided");
+    }
+
     return useContext(userContext);
 }
 
 export function UserContextProvider(props) {
     const [gameData, setGameData] = useState({
-        bananas: 0,
-        monkeys: 1,
-        tress: 1,
-        maxTreeClimbHeight: 10,
+        bananas: 99999999,
+        trees: [
+            {
+                monkeys: 1
+            }
+        ],
+        maxTreeClimbHeight: 30,
         currentMonkeyClimbHeight: 0,
         bananaTreeYield: 10
     });

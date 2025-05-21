@@ -14,7 +14,7 @@ export function useUserContext() {
 
 export function UserContextProvider(props) {
     const [gameData, setGameData] = useState({
-        bananas: 0,
+        bananas: 999999999,
         trees: [
             {
                 monkeys: 1

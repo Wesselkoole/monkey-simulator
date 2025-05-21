@@ -43,21 +43,13 @@
     display: flex;
 }
 
-.monkey-container > * {
-    width: 25%;
+.monkey-container img {
+    width: 12.5%;
 }
 
-.monkey-tree img:first-child {
+.monkey-container img:nth-child(2) {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
-}
-
-.monkey-tree {
-    display: flex;
-}
-
-.monkey-tree img {
-    width: 50%;
 }
 
 #forest {

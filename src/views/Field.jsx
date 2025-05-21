@@ -11,7 +11,7 @@ import { usePowerUpContext } from '../hooks/PowerUpContext';
 export function Field() {
     const userContext = useUserContext();
     const powerUpContext = usePowerUpContext();
-    
+
     const gameData = userContext.gameData;
 
     const forestRef = useRef();
@@ -22,6 +22,9 @@ export function Field() {
         const forest = forestRef.current;
         const bark = barkRef.current;
         const root = rootRef.current;
+
+        if (!forest || !bark || !root)
+            return;
 
         let offset = (gameData.currentMonkeyClimbHeight * bark.offsetHeight / 10);
 
@@ -35,7 +38,7 @@ export function Field() {
         <>
             <div id="forestContainer" className="h-100">
                 <div id="forest" className="row" ref={forestRef}>
-                    {gameData.trees.map(tree =>
+                    {Array.from({ length: powerUpContext.powerUps.TREE.level }).map(() => (
                         <div className="col-md-3 tree">
                             <div className="bananasContainer">
                                 <img className="bananas" alt="bananas" src="src/images/bananen.png" />
@@ -54,16 +57,12 @@ export function Field() {
                                 <img className="root anchored-root" alt="root" ref={rootRef} src="src/images/bodem.png" />
                             </div>
                         </div>
-                    )}
+                    ))}
                 </div>
             
                 <div className="monkey-container">
-                    {gameData.trees.map(tree => (
-                        <div className="monkey-tree">
-                            {Array.from({ length: tree.monkeys}).map((_, i) => (
-                                <img src={climbingMonkey} />
-                            ))}
-                        </div>
+                    {Array.from({ length: powerUpContext.powerUps.MONKEY.level }).map(() => (
+                        <img src={climbingMonkey} />
                     ))}
                 </div>
             </div>

@@ -11,9 +11,15 @@ export function monkeyClicked(userContext, powerUpContext) {
         return;
     }
 
+    let monkeys = 0;
+
+    gameData.trees.forEach(tree => {
+        monkeys += tree.monkeys;
+    });
+
     setGameData({
         currentMonkeyClimbHeight: 0,
-        bananas: gameData.bananas + (gameData.bananaTreeYield * gameData.monkeys)
+        bananas: gameData.bananas + (gameData.bananaTreeYield * monkeys)
     });
 }
 

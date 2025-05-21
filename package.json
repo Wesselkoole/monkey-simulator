@@ -2,7 +2,7 @@
   "name": "monkey-clicker",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://mrspace6488.github.io/monkey-clicker/",
+  "homepage": "https://wesselkoole.github.io/monkey-simulator/",
   "type": "module",
   "scripts": {
     "dev": "vite",

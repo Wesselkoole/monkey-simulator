@@ -16,7 +16,7 @@ export function monkeyClicked(userContext, powerUpContext) {
     let goldenBananaUsed = false;
 
     if (goldenBananaLevel > 0) {
-        const chance =  5;
+        const chance =  1;
         const roll = Math.random() * 100;
         if (roll < chance) {
             goldenBananaUsed = true;

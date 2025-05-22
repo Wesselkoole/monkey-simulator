@@ -1,0 +1,23 @@
+:root {
+    --bg-offset: 70%;
+    /* initial vertical shift */
+}
+
+.forest-bg {
+    background:
+        linear-gradient(to bottom,
+            /* sky */
+            #4ebde9 0%,
+            /* skyblue */
+            #4ebde9 50%,
+            /* grass */
+            #28a228 50%,
+            /* limegreen */
+            #28a228 100%);
+    /* Allow JS to slide the split line */
+    background-repeat: no-repeat;
+    background-size: 100% 200%;
+    /* double height so we can scroll it */
+    background-position: 0 var(--bg-offset);
+    transition: background-position 0.1s linear;
+}

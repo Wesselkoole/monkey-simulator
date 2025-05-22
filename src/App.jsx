@@ -1,5 +1,6 @@
 import './App.css';
 import './css/tree.css'
+import './css/forest.css'
 import Nav from "./views/Nav.jsx";
 import Clicker from "./views/Clicker.jsx";
 import Field from "./views/Field.jsx";
@@ -20,7 +21,7 @@ function App() {
               <div className="col-md-3 bg-warning">
                 <Clicker />
               </div>
-              <div className="col-md-6 bg-success">
+              <div className="col-md-6 forest-bg">
                 <Field />
               </div>
               <div className="col-md-3 bg-warning">

@@ -87,3 +87,8 @@ export function loadGameState(userContext, powerUpContext) {
         });
     }
 }
+
+export function resetSavedGameState() {
+    Cookies.remove("save_data");
+    location.reload();
+}

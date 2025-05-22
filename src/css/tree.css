@@ -45,11 +45,13 @@
 
 .monkey-container img {
     width: 12.5%;
-}
-
-.monkey-container img:nth-child(2) {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
+}
+
+.monkey-container img:nth-child(2n) {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
 }
 
 #forest {

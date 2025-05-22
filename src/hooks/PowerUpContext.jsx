@@ -34,7 +34,7 @@ export function PowerUpProvider({ children }) {
     }
 
     return (
-        <powerUpContext.Provider value={{ powerUps, levelUp }}>
+        <powerUpContext.Provider value={{ powerUps, levelUp, setPowerUps }}>
             {children}
         </powerUpContext.Provider>
     );

@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { createContext } from "react";
-import Cookies from "js-cookie";
 const userContext = createContext(null);
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -21,7 +20,7 @@ export function UserContextProvider(props) {
         bananaTreeYield: 10
     });
 
-    function setGameDataPublic(newGameData) {
+    const setGameDataPublic = (newGameData) => {
         const keys = Object.keys(newGameData);
         const gameDataToSet = { ...gameData };
 
@@ -32,20 +31,9 @@ export function UserContextProvider(props) {
         setGameData(gameDataToSet);
     }
 
-    function saveGameData() {
-        Cookies.set("gameData", JSON.stringify(gameData))
-    }
-
-    function loadGameData() {
-        const parsed = JSON.parse(Cookies.get("gameData"));
-        setGameDataPublic(parsed);
-    }
-
     const provided = {
         gameData,
-        setGameData: setGameDataPublic,
-        saveGameData,
-        loadGameData
+        setGameData: setGameDataPublic
     }
 
     return (

@@ -1,4 +1,5 @@
 import {PowerUpProvider} from "../hooks/PowerUpContext.jsx";
+import { saveGameState } from "./SaveActions.jsx";
 
 export function monkeyClicked(userContext, powerUpContext) {
     const gameData = userContext.gameData;

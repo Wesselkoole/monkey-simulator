@@ -8,6 +8,9 @@ import { usePowerUpContext } from '../hooks/PowerUpContext.jsx';
 import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faSyringe} from "@fortawesome/free-solid-svg-icons";
 import monkey from "../assets/monkey.png"
+import { loadGameState, saveGameState } from '../actions/SaveActions.jsx';
+
+let loaded = false;
 
 const Clicker = () => {
     const userContext = useUserContext();
@@ -17,6 +20,19 @@ const Clicker = () => {
     const [showValue, setShowValue] = useState(false);
     const [showGolden, setShowGolden] = useState(false);
     const [isClicked, setIsClicked] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    useEffect(() => {
+        loadGameState(userContext, powerUpContext);
+        setIsLoaded(true);
+    }, []);
+
+    useEffect(() => {
+        if (!isLoaded)
+            return;
+
+        saveGameState(userContext, powerUpContext);
+    }, [powerUpContext.powerUps, userContext.gameData.bananas]);
 
     const handleClick = () => {
         const result = monkeyClicked(userContext, powerUpContext);
